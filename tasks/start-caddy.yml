@@ -1,0 +1,38 @@
+---
+- name: Pull Caddy image
+  docker_image:
+    name: "{{ caddy_container_image }}:{{ caddy_container_tag }}"
+    source: pull
+
+- name: Start Caddy Docker Container
+  docker_container:
+    name: "{{ caddy_container_image }}"
+    image: "{{ caddy_container_image }}:{{ caddy_container_tag }}"
+    network_mode: host
+    volumes:
+      - /docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - /docker/searx-checker:/srv/searx-checker:rw
+      - /docker/caddy/caddy-data:/data:rw
+      - /docker/caddy/caddy-config:/config:rw
+    env:
+      CADDY_TLS: "{{ letsencrypt_email }}"
+      SEARX_HOSTNAME: "{{ searx_hostname }}"
+      PRIVATEBIN_HOSTNAME: "{{ privatebin_hostname }}"
+      YOURLS_HOSTNAME: "{{ yourls_hostname }}"
+      MATRIX_HOSTNAME: "{{ matrix_hostname }}"
+      DIMENSION_HOSTNAME: "{{ dimension_hostname }}"
+      ELEMENT_HOSTNAME: "{{ element_hostname }}"
+      PEERTUBE_HOSTNAME: "{{ peertube_hostname }}"
+      NEXTCLOUD_HOSTNAME: "{{ nextcloud_hostname }}"
+      JITSI_HOSTNAME: "{{ jitsi_hostname }}"
+    cap_drop:
+      - all
+    capabilities:
+      - NET_BIND_SERVICE
+      - DAC_OVERRIDE
+    restart_policy: "unless-stopped"
+    state: started
+    restart: yes
+    labels:
+      network: "searx"
+      project: "searx"

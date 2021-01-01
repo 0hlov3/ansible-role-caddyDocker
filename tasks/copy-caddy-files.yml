@@ -1,0 +1,7 @@
+- name: Copy CADDYFiles
+  copy:
+    src: Caddyfile
+    dest: /docker/caddy
+    owner: root
+    group: root
+    mode: '0644'

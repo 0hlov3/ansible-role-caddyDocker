@@ -1,0 +1,21 @@
+---
+- name: Create directory for Caddy
+  file:
+    path: /docker/caddy
+    state: directory
+    mode: '0755'
+- name: Create directory for Caddy
+  file:
+    path: /docker/caddy/caddy-data
+    state: directory
+    mode: '0755'
+- name: Create directory for Caddy
+  file:
+    path: /docker/caddy/caddy-config
+    state: directory
+    mode: '0755'
+- name: Create directory for searx-checker
+  file:
+    path: /docker/searx-checker
+    state: directory
+    mode: '0755'
