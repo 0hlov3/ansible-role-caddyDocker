@@ -13,6 +13,7 @@
       - "{{ caddy_container_caddyfile }}:/etc/caddy/Caddyfile:ro"
       - "{{ caddy_container_data }}:/data:rw"
       - "{{ caddy_container_config }}:/config:rw"
+      - "{{ caddy_container_caddyfiles }}:/etc/caddy/caddyfiles:ro"
       - "{{ caddy_container_searxchecker }}:/srv/searx-checker:rw"
     cap_drop:
       - all

@@ -11,5 +11,5 @@
 }
 
 {% if caddy_container_caddyfiles is defined and caddy_container_caddyfiles != "" %}
-import {{ caddy_container_caddyfiles }}
+import /etc/caddy/caddyfiles/*.caddy
 {% endif %}
