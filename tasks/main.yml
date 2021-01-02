@@ -1,4 +1,0 @@
----
-- include_tasks: create-caddy-folders.yml
-- include_tasks: copy-caddy-files.yml
-- include_tasks: start-caddy.yml

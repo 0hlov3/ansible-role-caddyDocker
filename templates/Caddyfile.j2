@@ -1,0 +1,15 @@
+####################################
+# This file is managed by ansible
+####################################
+
+
+{
+  admin {{ caddyfile.global.admin }}
+  http_port {{ caddyfile.global.http_port }}
+  https_port {{ caddyfile.global.https_port }}
+  email {{ caddyfile.global.email }}
+}
+
+{% if caddy_container_caddyfiles is defined and caddy_container_caddyfiles != "" %}
+import {{ caddy_container_caddyfiles }}
+{% endif %}

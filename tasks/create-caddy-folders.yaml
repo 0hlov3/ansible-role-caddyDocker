@@ -1,0 +1,27 @@
+---
+- name: Create directory for caddy
+  file:
+    path: "{{ caddy_cotainer_dir }}"
+    state: directory
+    mode: '0755'
+- name: Create directory for caddy-data
+  file:
+    path: "{{ caddy_container_data }}"
+    state: directory
+    mode: '0755'
+- name: Create directory for caddy-config
+  file:
+    path: "{{ caddy_container_config }}"
+    state: directory
+    mode: '0755'
+- name: Create directory for caddyfiles
+  file:
+    path: "{{ caddy_container_caddyfiles }}"
+    state: directory
+    mode: '0755'
+- name: Create directory for searx-checker
+  file:
+    path: "{{ caddy_container_searxchecker }}"
+    state: directory
+    mode: '0755'
+...

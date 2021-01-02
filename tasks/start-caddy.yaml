@@ -1,0 +1,26 @@
+---
+- name: Pull Caddy image
+  docker_image:
+    name: "{{ caddy_container_image }}:{{ caddy_container_tag }}"
+    source: pull
+
+- name: Start Caddy Docker Container
+  docker_container:
+    name: "{{ caddy_container_image }}"
+    image: "{{ caddy_container_image }}:{{ caddy_container_tag }}"
+    network_mode: host
+    volumes:
+      - "{{ caddy_container_caddyfile }}:/etc/caddy/Caddyfile:ro"
+      - "{{ caddy_container_data }}:/data:rw"
+      - "{{ caddy_container_config }}:/config:rw"
+      - "{{ caddy_container_searxchecker }}:/srv/searx-checker:rw"
+    cap_drop:
+      - all
+    capabilities:
+      - NET_BIND_SERVICE
+      - DAC_OVERRIDE
+    restart_policy: "unless-stopped"
+    state: started
+    restart: yes
+    labels:
+      project: "caddy"

@@ -1,0 +1,19 @@
+---
+caddy_container_image: "caddy"
+caddy_container_tag: "2-alpine"
+caddy_cotainer_dir: "/docker/caddy"
+caddy_container_data: "/docker/caddy/caddy-data"
+caddy_container_config: "/docker/caddy/caddy-config"
+caddy_container_caddyfiles: "/docker/caddy/caddyfiles"
+caddy_container_caddyfile: "/docker/caddy/Caddyfile"
+
+caddy_container_searxchecker: "/docker/searx-checker/"
+
+caddyfile:
+  global: 
+    admin: "off"
+    http_port: 80
+    https_port: 443
+    email: "0hlov3@protonmail.com"
+    
+...
