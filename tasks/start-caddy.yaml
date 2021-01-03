@@ -25,3 +25,4 @@
     restart: yes
     labels:
       project: "caddy"
+...

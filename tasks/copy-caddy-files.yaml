@@ -1,4 +1,6 @@
+---
 - name: Copy CADDYFile
   template:
       dest: /docker/caddy/Caddyfile
       src: Caddyfile.j2
+...
