@@ -14,6 +14,6 @@ caddyfile:
     admin: "off"
     http_port: 80
     https_port: 443
-    email: "0hlov3@protonmail.com"
+    email: ""
     
 ...
